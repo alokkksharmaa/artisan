@@ -62,10 +62,16 @@ Route::fallback(function(){
     return "<h1> Page not found<h1>";
 });
 
-Route::get("/welcome", function() {
-    return view("Welcome");
+
+// named route
+Route::get('/welcome', function () {
+    return view('welcome');
 });
 
-Route::get("Home", function() {
-    return view("Home");
+Route::get('/home', function () {
+    return view('home');
 });
+
+Route::get('/aboutus', function () {
+    return view('about');
+})->name("about");

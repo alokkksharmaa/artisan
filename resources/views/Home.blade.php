@@ -1,5 +1,6 @@
 <h1>Home Page </h1>
 
 
-<a href="/about"> About </a>
+<a href="{{ route("about") }}"> About </a>
+<br>
 <a href="/welcome"> Welcome </a>
