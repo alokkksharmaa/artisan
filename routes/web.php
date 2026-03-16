@@ -37,12 +37,12 @@ Route::get('/user/{id}/post/{postId}', function ($id, $postId) {
 });
 
 // table
-Route::get("/table/{num?}", function($num = 5)
-{
-    for($i=1;$i<=10;$i++){
-        echo "$num*$i = ". $num*$i . "<br>";
-     }
-})->whereNumber("num");
+// Route::get("/table/{num?}", function($num = 5)
+// {
+//     for($i=1;$i<=10;$i++){
+//         echo "$num*$i = ". $num*$i . "<br>";
+//      }
+// })->whereNumber("num");
 
 // student details, using multiple method
 Route::get('/Student"/{sname}/{id}/{course}', function($sname, $id, $course)
@@ -75,3 +75,7 @@ Route::get('/home', function () {
 Route::get('/aboutus', function () {
     return view('about');
 })->name("about");
+
+Route::get('/student', function () {
+    return view('student');
+});
