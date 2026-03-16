@@ -3,14 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 // Basic route
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Returns plain text
-Route::get('/hello', function () {
-    return "Hello World!";
-});
+// // Returns plain text
+// Route::get('/hello', function () {
+//     return "Hello World!";
+// });
 
 // Returns HTML
 Route::get('/html', function () {
@@ -27,7 +27,7 @@ Route::get('/json', function () {
 });
 
 // Route with parameter
-Route::get('/user/{id}', function ($id) {
+Route::get('/user/{id?}', function ($id) {
     return "<h1>User ID: $id</h1>";
 });
 
@@ -36,3 +36,36 @@ Route::get('/user/{id}/post/{postId}', function ($id, $postId) {
     return "<h1>User: $id | Post: $postId</h1>";
 });
 
+// table
+Route::get("/table/{num?}", function($num = 5)
+{
+    for($i=1;$i<=10;$i++){
+        echo "$num*$i = ". $num*$i . "<br>";
+     }
+})->whereNumber("num");
+
+// student details, using multiple method
+Route::get('/Student"/{sname}/{id}/{course}', function($sname, $id, $course)
+{
+    return "StudentName: ". $sname .
+    "<br> Student Id: " .$id . 
+    "<br> Course: " . $course;
+})->where([
+'sname' => '[a-zA-Z]', 
+'id' => '[0-9]', 
+'course' => '[a-zA-z] +'
+]);
+
+
+// fallback method
+Route::fallback(function(){
+    return "<h1> Page not found<h1>";
+});
+
+Route::get("/welcome", function() {
+    return view("Welcome");
+});
+
+Route::get("Home", function() {
+    return view("Home");
+});
