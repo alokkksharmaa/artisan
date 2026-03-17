@@ -79,3 +79,36 @@ Route::get('/aboutus', function () {
 Route::get('/student', function () {
     return view('student');
 });
+
+
+// with method and with name method
+// Route::get("/new1", function() {
+//     $name =  "Alok";
+//     $id  = 123;
+//     return view("student")->withName($name)->withId($id);
+// });
+
+
+// Using compact method
+// Route::get("/new/{name}/{id}", function($name, $id){
+//     return view("student")->withName($name)->withId($id);
+// });
+
+
+
+// json response
+Route::get("/json", function(){
+
+});
+
+// response() function in laravel  -- it return view(html) , json , file, redirect, text , controller
+// example -- simple text form
+
+Route::get("/hi", function(){
+    return response("Welcome to laravel");
+});
+
+// 2nd example
+Route::get("/hii", function(){
+    return response()->view('welcome');
+});
