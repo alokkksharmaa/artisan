@@ -112,3 +112,84 @@ Route::get("/hi", function(){
 Route::get("/hii", function(){
     return response()->view('welcome');
 });
+
+// 3rd example -- json response
+Route::any("/json", function(){
+    return response()->json([
+        "name" =>  "Alok", 
+        "id" => "12317981",
+        "course" => "CSE",
+        "email" => "abc@gmail.com"
+    ]);
+});
+
+// using array
+Route::get('/students', function () {
+    $student = [
+        "sname" => "Alok",
+        "id" => "12317981",
+        "course" => "CSE",
+        "email" => "abc@gmail.com"
+    ];
+    return ($student);
+});
+
+// 4th example -- redirect
+Route::any("/jsn", function() {
+
+    return response()->redirectTo("hii");
+});
+
+Route::any("/notfound", function() {
+    
+    return response("error 404 not found", 404);
+});
+
+
+// header
+Route::any("/header" , function() {
+    return response("Welcome to Laravel")
+        -> header("X-Welcome-Header", "welcome to laravel");
+});
+
+
+// json response with headers
+Route::any("/jsonheader", function(){
+
+ return response()-> json(["name" => "Alok"])
+                    -> header("Content Type", "application/json");
+});
+
+
+                                //  --------- COOKIE ------
+Route::any("/set-cookie", function() {
+
+    // 1.Setting cookies  - cookie()helper syntax -- cookie(name , value , time);
+
+    $cookie = cookie("abc", "raj", 2);  //coookie helper to create a cookie
+    return response("Cookie has been set")->cookie($cookie);
+});
+
+// retrival
+Route::any("/get-cookie", function() {
+
+    $username = request() -> cookie("abc");
+    return response("Username: " .($username ?? "Cookie is not found"));
+
+
+});
+
+// deleting cookieee 
+Route::get("/delete-cookie", function () {
+
+    
+    return response("Cookie deleted")
+            ->cookie(cookie()->forget("abc"));
+
+});
+
+
+
+Route::any("/subview", function() {
+    return view('admin.hello');
+});
