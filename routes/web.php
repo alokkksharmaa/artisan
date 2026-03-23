@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 // Basic route
 // Route::get('/', function () {
@@ -45,20 +46,19 @@ Route::get('/user/{id}/post/{postId}', function ($id, $postId) {
 // })->whereNumber("num");
 
 // student details, using multiple method
-Route::get('/Student"/{sname}/{id}/{course}', function($sname, $id, $course)
-{
-    return "StudentName: ". $sname .
-    "<br> Student Id: " .$id . 
-    "<br> Course: " . $course;
+Route::get('/Student"/{sname}/{id}/{course}', function ($sname, $id, $course) {
+    return "StudentName: " . $sname .
+        "<br> Student Id: " . $id .
+        "<br> Course: " . $course;
 })->where([
-'sname' => '[a-zA-Z]', 
-'id' => '[0-9]', 
-'course' => '[a-zA-z] +'
+    'sname' => '[a-zA-Z]',
+    'id' => '[0-9]',
+    'course' => '[a-zA-z] +'
 ]);
 
 
 // fallback method
-Route::fallback(function(){
+Route::fallback(function () {
     return "<h1> Page not found<h1>";
 });
 
@@ -97,26 +97,24 @@ Route::get('/student', function () {
 
 
 // json response
-Route::get("/json", function(){
-
-});
+Route::get("/json", function () {});
 
 // response() function in laravel  -- it return view(html) , json , file, redirect, text , controller
 // example -- simple text form
 
-Route::get("/hi", function(){
+Route::get("/hi", function () {
     return response("Welcome to laravel");
 });
 
 // 2nd example
-Route::get("/hii", function(){
+Route::get("/hii", function () {
     return response()->view('welcome');
 });
 
 // 3rd example -- json response
-Route::any("/json", function(){
+Route::any("/json", function () {
     return response()->json([
-        "name" =>  "Alok", 
+        "name" =>  "Alok",
         "id" => "12317981",
         "course" => "CSE",
         "email" => "abc@gmail.com"
@@ -135,34 +133,34 @@ Route::get('/students', function () {
 });
 
 // 4th example -- redirect
-Route::any("/jsn", function() {
+Route::any("/jsn", function () {
 
     return response()->redirectTo("hii");
 });
 
-Route::any("/notfound", function() {
-    
+Route::any("/notfound", function () {
+
     return response("error 404 not found", 404);
 });
 
 
 // header
-Route::any("/header" , function() {
+Route::any("/header", function () {
     return response("Welcome to Laravel")
-        -> header("X-Welcome-Header", "welcome to laravel");
+        ->header("X-Welcome-Header", "welcome to laravel");
 });
 
 
 // json response with headers
-Route::any("/jsonheader", function(){
+Route::any("/jsonheader", function () {
 
- return response()-> json(["name" => "Alok"])
-                    -> header("Content Type", "application/json");
+    return response()->json(["name" => "Alok"])
+        ->header("Content Type", "application/json");
 });
 
 
-                                //  --------- COOKIE ------
-Route::any("/set-cookie", function() {
+//  --------- COOKIE ------
+Route::any("/set-cookie", function () {
 
     // 1.Setting cookies  - cookie()helper syntax -- cookie(name , value , time);
 
@@ -171,29 +169,40 @@ Route::any("/set-cookie", function() {
 });
 
 // retrival
-Route::any("/get-cookie", function() {
+Route::any("/get-cookie", function () {
 
-    $username = request() -> cookie("abc");
-    return response("Username: " .($username ?? "Cookie is not found"));
-
-
+    $username = request()->cookie("abc");
+    return response("Username: " . ($username ?? "Cookie is not found"));
 });
 
 // deleting cookieee 
 Route::get("/delete-cookie", function () {
 
-    
-    return response("Cookie deleted")
-            ->cookie(cookie()->forget("abc"));
 
+    return response("Cookie deleted")
+        ->cookie(cookie()->forget("abc"));
 });
 
 
 
-Route::any("/subview", function() {
+Route::any("/subview", function () {
     return view('admin.hello');
 });
 
+// get cookie
+// Route::get('/get-cookie-facade', function(Request $request){
+//    $user = $request->cookie('user');
 
-// basic controller file example
-Route::get("/basic", [UseController::class, "read"];)
+//    if($user){
+//     return "Cookie value is: ".$user;
+//    }else {
+//     return "Cookie is not found".$user;
+//    }
+// });
+
+
+
+
+use App\Http\Controllers\FirstController;
+
+Route::get("/controller", [FirstController::class, "read"]);
