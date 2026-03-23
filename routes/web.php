@@ -193,3 +193,7 @@ Route::get("/delete-cookie", function () {
 Route::any("/subview", function() {
     return view('admin.hello');
 });
+
+
+// basic controller file example
+Route::get("/basic", [UseController::class, "read"];)
