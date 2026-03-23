@@ -204,5 +204,9 @@ Route::any("/subview", function () {
 
 
 use App\Http\Controllers\FirstController;
+Route::get("/read", [FirstController::class, "read"]);
 
-Route::get("/controller", [FirstController::class, "read"]);
+
+
+use App\Http\Controllers\SingleController;
+Route::get('/single', SingleController::class);
