@@ -1,6 +1,13 @@
-<h1>Home Page </h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blade Example</title>
+</head>
+<body>
 
+<h1>Hello, {{ $name }}</h1>
 
-<a href="{{ route("about") }}"> About </a>
-<br>
-<a href="/welcome"> Welcome </a>
+<p>This is my first Blade template.</p>
+
+</body>
+</html>

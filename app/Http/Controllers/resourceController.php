@@ -6,59 +6,42 @@ use Illuminate\Http\Request;
 
 class resourceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
-    {
-        //
-    }
+{
+    return view('home', [
+        'name' => 'Alok'
+    ]);
+}
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return "This is CREATE page";
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        return "Data STORED successfully";
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        return "Showing resource with ID: " . $id;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        return "Editing resource with ID: " . $id;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        return "Updated resource with ID: " . $id;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        return "Deleted resource with ID: " . $id;
     }
 }
+
+
