@@ -204,11 +204,13 @@ Route::any("/subview", function () {
 
 
 use App\Http\Controllers\FirstController;
+
 Route::get("/read", [FirstController::class, "read"]);
 
 
 
 use App\Http\Controllers\SingleController;
+
 Route::get('/single', SingleController::class);
 
 use App\Http\Controllers\resourceController;
@@ -218,3 +220,5 @@ Route::resource('resource', resourceController::class);
 
 
 Route::get('/home', [resourceController::class, 'index']);
+
+
