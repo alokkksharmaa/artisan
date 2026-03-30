@@ -228,3 +228,7 @@ use App\Http\Middleware\checkAge;
 Route::get('/age', function () {
     return "Welcome to the age-restricted area!";
 })->middleware(checkAge::class);
+
+Route::get('/age/{age}', function ($age) {
+    return "Your age is: " . $age;
+})->middleware(checkAge::class);
