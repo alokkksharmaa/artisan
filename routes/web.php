@@ -222,7 +222,6 @@ Route::resource('resource', resourceController::class);
 Route::get('/home', [resourceController::class, 'index']);
 
 
-
 use App\Http\Middleware\checkAge;
 Route::get('/age', function () {
     return "Welcome to the age-restricted area!";
