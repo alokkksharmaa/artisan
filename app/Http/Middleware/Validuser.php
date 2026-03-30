@@ -10,13 +10,16 @@ class checkAge
 {
     public function handle(Request $request, Closure $next): Response
     {
-        // Get age from request (URL or form)
-        $age = $request->age;
+        $age = $request->route('age');
+
+        if ($age === null) {
+            return response("Age parameter is missing", 400);
+        }
 
         if ($age >= 18) {
             return $next($request);
         }
 
-        return response("Access Denied: Age must be 18 or above");
+        return response("Access Denied: Age must be 18 or above", 403);
     }
 }
