@@ -6,15 +6,17 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Validate
+class checkAge
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        // Get age from request (URL or form)
+        $age = $request->age;
+
+        if ($age >= 18) {
+            return $next($request);
+        }
+
+        return response("Access Denied: Age must be 18 or above");
     }
 }
