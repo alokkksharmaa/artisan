@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,4 +21,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
-Route::get('/dashboard', [DashboardController::class, 'show']);
+// Route::get('/dashboard', [DashboardController::class, 'show']);
