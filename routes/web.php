@@ -95,6 +95,6 @@ Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/redrct', function() {
 
-    return redirect('home');
+    return redirect('/home');
 
 }); 
