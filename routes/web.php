@@ -43,14 +43,14 @@ Route::get('/user/{name?}', function ($name = "Guest") {
 // PASSING DATA to views
 
 // by array
-Route::get('/home', function(){
+Route::get('/home', function () {
 
     return view('home', [
         'name' => "Alok"
     ]);
 });
 
-Route::get('/home', function(){
+Route::get('/home', function () {
 
     return view('home', [
         'name' => 'Alok',
@@ -58,3 +58,27 @@ Route::get('/home', function(){
     ]);
 });
 
+
+// COOKIE
+Route::get('/cookie', function () {
+
+    return response("Hello")
+        ->cookie("name", "Alok", 60);
+});
+
+// JSON Response
+
+Route::get('/json', function () {
+
+    return response()->json([
+        'name' => 'Alok',
+        'age' => '21'
+    ]);
+}); 
+
+// Redirecting to other route
+
+Route::get('/redirect', function() {
+
+    return redirect('/home');
+});
