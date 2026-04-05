@@ -7,7 +7,11 @@
 
 <h1>Hello, {{ $name }}</h1>
 
-<p>This is my first Blade template.</p>
+<p>This is my first Blade template.</p> 
+
+<h2> My Age is {{ $age }} </h2>
+
+
 
 </body>
 </html>

@@ -49,3 +49,12 @@ Route::get('/home', function(){
         'name' => "Alok"
     ]);
 });
+
+Route::get('/home', function(){
+
+    return view('home', [
+        'name' => 'Alok',
+        'age'  => '22'
+    ]);
+});
+
