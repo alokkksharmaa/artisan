@@ -90,3 +90,11 @@ Route::get('/redirect', function() {
 use App\Http\Controllers\UserController;
 
 Route::get('/users', [UserController::class, 'index']);
+
+
+
+Route::get('/redrct', function() {
+
+    return redirect('home');
+
+}); 

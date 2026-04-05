@@ -14,5 +14,7 @@ class UserController extends Controller
     public function show()
     {
         return "Single User";
+
+        
     }
 }
