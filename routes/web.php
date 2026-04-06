@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 
@@ -92,11 +92,11 @@ Route::get('/json', function () {
         'name' => 'Alok',
         'age' => '21'
     ]);
-}); 
+});
 
 // Redirecting to other route
 
-Route::get('/redirect', function() {
+Route::get('/redirect', function () {
 
     return redirect('/home');
 });
@@ -111,11 +111,10 @@ Route::get('/users', [UserController::class, 'index']);
 
 
 
-Route::get('/redrct', function() {
+Route::get('/redrct', function () {
 
     return redirect('/home');
-
-}); 
+});
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -126,26 +125,24 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', function () {
         return "Profile";
     });
-
 });
 
 
 
 
 
-Route::domain('admin.localhost')->group(function(){
+Route::domain('admin.localhost')->group(function () {
 
-    Route::get('/dashboard', function(){
+    Route::get('/dashboard', function () {
         return "Admin Dashboard";
     });
 });
 
-Route::domain('user.localhost')->group(function() {
+Route::domain('user.localhost')->group(function () {
 
-    Route::get('/dashboard', function() {
-    return "User Dasboard";
+    Route::get('/dashboard', function () {
+        return "User Dasboard";
     });
-
 });
 
 
@@ -155,6 +152,18 @@ Route::get('/students', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
 
 
-Route::get('/home', function () {
-    return "Home";
-})->name('home');
+Route::get('/dashboard', function () {
+    return "DashBoard Page";
+})->name('dashboard');
+
+
+// Redirect from another route
+Route::get('/home', function() {
+    return redirect()->route('dashboard');
+});
+
+
+
+use App\Http\Controllers\RedirectController;
+
+Route::get('/go', [RedirectController::class, 'redirectMethod']);
