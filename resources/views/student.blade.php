@@ -1,5 +1,5 @@
 <div>
-    <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk -->
+        {{-- <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk --> --}}
 </div>
 
 <h1>Student Details</h1>

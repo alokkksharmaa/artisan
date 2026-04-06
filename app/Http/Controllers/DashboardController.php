@@ -13,11 +13,16 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
-    public function show()
+    public function index()
     {
-        return "Hello World";
+        return "Secure Dashboard from Controller";
     }
-}
+
+    public function show() {
+        return view('welcome');
+    }
+};
+
 
 
 ?>
