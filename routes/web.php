@@ -98,3 +98,15 @@ Route::get('/redrct', function() {
     return redirect('/home');
 
 }); 
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/dashboard', function () {
+        return "Dashboard";
+    });
+
+    Route::get('/profile', function () {
+        return "Profile";
+    });
+
+});

@@ -18,3 +18,6 @@ class DashboardController extends Controller
         return "Hello World";
     }
 }
+
+
+?>
