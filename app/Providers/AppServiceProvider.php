@@ -23,5 +23,7 @@ class AppServiceProvider extends ServiceProvider
         //
         View::share('uniName', 'LPU');
         View::share('contactEmail', 'contact@gmail.com');
+        View::share('college', 'ABC College');
+
     }
 };

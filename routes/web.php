@@ -147,3 +147,10 @@ Route::domain('user.localhost')->group(function() {
     });
 
 });
+
+
+use App\Http\Controllers\StudentController;
+
+Route::get('/students', [StudentController::class, 'index']);
+
+Route::get('/student/{id}', [StudentController::class, 'show']);
