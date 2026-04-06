@@ -154,3 +154,8 @@ use App\Http\Controllers\StudentController;
 Route::get('/students', [StudentController::class, 'index']);
 
 Route::get('/student/{id}', [StudentController::class, 'show']);
+
+
+Route::get('/home', function () {
+    return "Home";
+})->name('home');
