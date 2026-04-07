@@ -12,7 +12,7 @@
 <a href="{{ URL::to("about") }}"
 
 
-@include("admin.footer");
+{{-- @include("admin.footer"); --}}
 
 {{ url::current()}}
 {{ url()->current }}
