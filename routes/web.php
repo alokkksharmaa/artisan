@@ -178,3 +178,12 @@ use App\Http\Controllers\FileUploadController;
 
 Route::get('/upload', [FileUploadController::class, 'index']);
 Route::post('/upload', [FileUploadController::class, 'store'])->name('file.upload');
+
+
+// routes/web.php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/dashboard', function () {
+    return "Dashboard Page";
+})->name('dashboard');
