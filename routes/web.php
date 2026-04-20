@@ -167,3 +167,14 @@ Route::get('/home', function() {
 use App\Http\Controllers\RedirectController;
 
 Route::get('/go', [RedirectController::class, 'redirectMethod']);
+
+
+
+use App\Http\Controller\EmailController;
+
+
+
+use App\Http\Controllers\FileUploadController;
+
+Route::get('/upload', [FileUploadController::class, 'index']);
+Route::post('/upload', [FileUploadController::class, 'store'])->name('file.upload');
