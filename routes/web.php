@@ -182,7 +182,7 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.uploa
 
 // routes/web.php
 
-use Illuminate\Support\Facades\Route;
+// use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
     return "Dashboard Page";

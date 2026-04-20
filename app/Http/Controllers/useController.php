@@ -14,7 +14,12 @@ class UserController extends Controller
     public function show()
     {
         return "Single User";
+    }
 
-        
+    public function store(Request $request)
+    {
+        $name = $request->input('name');
+
+        return $name;
     }
 }
