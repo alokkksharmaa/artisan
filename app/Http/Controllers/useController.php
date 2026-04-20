@@ -16,7 +16,7 @@ class UserController extends Controller
         return "Single User";
     }
 
-    public function store(Request $request)
+    public function store($request)
     {
         $name = $request->input('name');
 
