@@ -3,9 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -158,7 +158,7 @@ Route::get('/dashboard', function () {
 
 
 // Redirect from another route
-Route::get('/home', function() {
+Route::get('/home', function () {
     return redirect()->route('dashboard');
 });
 
@@ -182,8 +182,40 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.uploa
 
 // routes/web.php
 
-// use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
     return "Dashboard Page";
 })->name('dashboard');
+
+Route::get('/', function () {
+    $value = session()->all();
+    echo "<pre>";
+    print_r($value);
+    echo "<pre>";
+});
+
+Route::get("/store-session", function () {
+    session(['name' => "Alok"]);
+    session()->put("class", "Laravel");
+    echo "session has been cleared";
+});
+
+// get session
+
+
+
+// delete and destroy the session 
+Route::get("/delete-session", function () {
+    session()->forget("name");
+    echo "Session destroyed";
+});
+
+
+use Illumninate\Http\Controller\TestController;
+
+Route::get('session-forget', function () {
+
+    
+
+
+});

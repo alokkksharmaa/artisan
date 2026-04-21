@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+//  FileUploadController.php
+
 use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
@@ -19,9 +21,15 @@ class FileUploadController extends Controller
         ]);
 
         // store file
-        $path = $request->file('file')->store('uploads', 'public');
+        $file = $request->file('file');
 
+        // generate filename
+        $fileName = time() . '_' . $file->getClientOriginalName();
+
+        // store file
+        $path = $file->storeAs('uploads', $fileName, 'public');
+
+        // return response
         return back()->with('success', 'File uploaded successfully!');
     }
 }
-
