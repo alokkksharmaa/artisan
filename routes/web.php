@@ -219,3 +219,9 @@ Route::get('session-forget', function () {
 
 
 });
+
+
+
+use App\Http\Controllers\SessionController;
+
+Route::get("/get", [SessionController])
