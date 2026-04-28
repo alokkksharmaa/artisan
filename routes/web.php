@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -26,12 +26,12 @@ require __DIR__ . '/auth.php';
 // });
 
 Route::get('/home', function () {
-    return "Hello from home";
+    return "Hello form home";
 });
 
 Route::post('/submit-post', function () {
 
-    return "Form Submission";
+    return "form Submission";
 });
 
 
@@ -47,7 +47,7 @@ Route::any('/user/{id}', function ($id) {
 
 
 Route::any('user/{id}/{name}', function ($id, $name) {
-    return "User id is: " . $id  . "user name is: " . $name;
+    return "User id is: " . $id . "user name is: " . $name;
 });
 
 
@@ -72,7 +72,7 @@ Route::get('/home', function () {
 
     return view('home', [
         'name' => 'Alok',
-        'age'  => '22'
+        'age' => '22'
     ]);
 });
 
@@ -152,12 +152,10 @@ Route::get('/students', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
 
 
-Route::get('/dashboard', function () {
-    return "DashBoard Page";
-})->name('dashboard');
 
 
-// Redirect from another route
+
+// Redirect form another route
 Route::get('/home', function () {
     return redirect()->route('dashboard');
 });
@@ -183,16 +181,9 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.uploa
 // routes/web.php
 
 
-Route::get('/dashboard', function () {
-    return "Dashboard Page";
-})->name('dashboard');
 
-Route::get('/', function () {
-    $value = session()->all();
-    echo "<pre>";
-    print_r($value);
-    echo "<pre>";
-});
+
+
 
 Route::get("/store-session", function () {
     session(['name' => "Alok"]);
@@ -213,8 +204,7 @@ Route::get("/delete-session", function () {
 
 use Illumninate\Http\Controller\TestController;
 
-Route::get('session-forget', function () {
-});
+Route::get('session-forget', function () { });
 
 
 
@@ -237,6 +227,51 @@ Route::get('/lang/{lang}', function ($lang) {
 
 
 
-// UNIT:5 Forms
+// UNIT:5 forms
+
+use App\Http\Controllers\formController;
+
+Route::get('/form', [formController::class, 'showform']);
+Route::post('/form', [formController::class, 'submitform']);
 
 
+
+
+
+
+
+use App\Http\Controllers\AuthController;
+
+Route::get('/', function () {
+    return redirect('/login');
+});
+
+Route::get(
+    '/register',
+    [AuthController::class, 'showRegister']
+);
+
+Route::post(
+    '/register',
+    [AuthController::class, 'register']
+);
+
+Route::get(
+    '/login',
+    [AuthController::class, 'showLogin']
+);
+
+Route::post(
+    '/login',
+    [AuthController::class, 'login']
+);
+
+Route::get(
+    '/dashboard',
+    [AuthController::class, 'dashboard']
+)->middleware('auth');
+
+Route::get(
+    '/logout',
+    [AuthController::class, 'logout']
+);

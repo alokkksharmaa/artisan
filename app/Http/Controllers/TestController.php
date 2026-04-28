@@ -33,15 +33,13 @@ class TestController extends Controller
         echo $value;
         }else{
             echo "name key session does not exist";
-        };
-        public function deletesession(){
-            session()->forget("name");
-            echo "destroy session";
         }
 
-
-
         return redirect('/');
+    }
 
+    public function deletesession(){
+        session()->forget("name");
+        echo "destroy session";
     }
 }

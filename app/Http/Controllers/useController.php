@@ -1,25 +1,53 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // Show all users
     public function index()
     {
-        return "All Users";
+        return response()->json([
+            "message" => "All Users"
+        ]);
     }
 
-    public function show()
+    // Show single user
+    public function show($id)
     {
-        return "Single User";
+        return response()->json([
+            "message" => "Single User",
+            "user_id" => $id
+        ]);
     }
 
-    public function store($request)
+    // Store new user
+    public function store(Request $request) 
     {
         $name = $request->input('name');
 
-        return $name;
+        // Example response
+        return response()->json([
+            "message" => "User created successfully",
+            "name" => $name
+        ]);
+    }
+
+    // Logout user
+    public function logout(Request $request)
+    {
+        $request->session()->forget("username");
+
+        return redirect("/profile");
+    }
+
+    // Delete session / user logout
+    public function delete(Request $request)
+    {
+        $request->session()->forget("username");
+
+        return redirect("/logout");
     }
 }
