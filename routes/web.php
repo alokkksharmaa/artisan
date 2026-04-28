@@ -81,7 +81,7 @@ Route::get('/home', function () {
 Route::get('/cookie', function () {
 
     return response("Hello")
-        ->cookie("name", "Alok", 60);
+        ->cookie("name", "Alok", 60, );
 });
 
 // JSON Response
@@ -155,9 +155,10 @@ Route::get('/student/{id}', [StudentController::class, 'show']);
 
 
 
+
 // Redirect form another route
-Route::get('/home', function () {
-    return redirect()->route('dashboard');
+Route::any('/home', function () {
+    // return redirect()->route('dashboard');
 });
 
 
@@ -204,7 +205,7 @@ Route::get("/delete-session", function () {
 
 use Illumninate\Http\Controller\TestController;
 
-Route::get('session-forget', function () { });
+Route::get('session-forget', function () {});
 
 
 
