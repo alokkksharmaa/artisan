@@ -127,10 +127,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-
-
-
-
 Route::domain('admin.localhost')->group(function () {
 
     Route::get('/dashboard', function () {

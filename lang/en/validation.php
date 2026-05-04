@@ -195,6 +195,10 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        // 'username' => "user name",
+        // 'useremail' => "user Email",
+        // 'user age' => "user Age",
+        //  'city' => "User age",
+    ],
 ];
