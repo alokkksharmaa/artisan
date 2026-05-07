@@ -177,11 +177,6 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.uploa
 
 // routes/web.php
 
-
-
-
-
-
 Route::get("/store-session", function () {
     session(['name' => "Alok"]);
     session()->put("class", "Laravel");
