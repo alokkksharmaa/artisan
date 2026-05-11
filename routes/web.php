@@ -248,3 +248,8 @@ Route::get(
     '/logout',
     [AuthController::class, 'logout']
 );
+
+
+Route::any('/posts', function() {
+    return Post::all();
+});
