@@ -3,42 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
     public function index()
     {
-        $students = [
-            [
-                "id" => 1,
-                "name" => "Rahul",
-                "course" => "BCA"
-            ],
-            [
-                "id" => 2,
-                "name" => "Amit",
-                "course" => "MCA"
-            ],
-            [
-                "id" => 3,
-                "name" => "Priya",
-                "course" => "B.Tech"
-            ]
-        ];
-
-        return view('students', compact('students'));
+        return Student::all();
     }
 
-    public function show($id)
+    public function store(Request $request)
     {
-        $students = [
-            1 => ["name" => "Rahul", "course" => "BCA"],
-            2 => ["name" => "Amit", "course" => "MCA"],
-            3 => ["name" => "Priya", "course" => "B.Tech"]
-        ];
+        $student = Student::create([
+            'name' => $request->name,
+            'age' => $request->age,
+            'course' => $request->course,
+        ]);
 
-        $student = $students[$id];
-
-        return view('student-details', compact('student'));
+        return response()->json([
+            'message' => 'Student created successfully',
+            'data' => $student
+        ]);
     }
 }

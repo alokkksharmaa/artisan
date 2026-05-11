@@ -250,6 +250,6 @@ Route::get(
 );
 
 
-Route::any('/posts', function() {
-    return Post::all();
-});
+
+Route::get('/students', [StudentController::class, 'index']);
+Route::post('/students', [StudentController::class, 'store']);
