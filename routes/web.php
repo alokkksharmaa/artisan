@@ -19,11 +19,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-
-
-// Route::any('/', function () {
-//     return "Home";
-// });
+Route::any('/', function () {
+    return "Home";
+});
 
 Route::get('/home', function () {
     return "Hello form home";
@@ -34,10 +32,7 @@ Route::post('/submit-post', function () {
     return "form Submission";
 });
 
-
-
 // DYNAMIC Routing;
-
 Route::any('/user/{id}', function ($id) {
     return "User " . $id;
 });
@@ -49,7 +44,7 @@ Route::any('/user/{id}', function ($id) {
 Route::any('user/{id}/{name}', function ($id, $name) {
     return "User id is: " . $id . "user name is: " . $name;
 });
-
+ 
 
 // optional paramater
 Route::get('/user/{name?}', function ($name = "Guest") {
@@ -81,7 +76,7 @@ Route::get('/home', function () {
 Route::get('/cookie', function () {
 
     return response("Hello")
-        ->cookie("name", "Alok", 60, );
+        ->cookie("name", "Alok", 60,);
 });
 
 // JSON Response
@@ -147,27 +142,16 @@ use App\Http\Controllers\StudentController;
 Route::get('/students', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
 
-
-
-
-
-
 // Redirect form another route
 Route::any('/home', function () {
     // return redirect()->route('dashboard');
 });
 
-
-
 use App\Http\Controllers\RedirectController;
 
 Route::get('/go', [RedirectController::class, 'redirectMethod']);
 
-
-
 use App\Http\Controller\EmailController;
-
-
 
 use App\Http\Controllers\FileUploadController;
 
@@ -176,11 +160,6 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('file.uploa
 
 
 // routes/web.php
-
-
-
-
-
 
 Route::get("/store-session", function () {
     session(['name' => "Alok"]);
@@ -263,10 +242,7 @@ Route::post(
     [AuthController::class, 'login']
 );
 
-Route::get(
-    '/dashboard',
-    [AuthController::class, 'dashboard']
-)->middleware('auth');
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth');
 
 Route::get(
     '/logout',
