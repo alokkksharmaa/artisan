@@ -44,7 +44,7 @@ Route::any('/user/{id}', function ($id) {
 Route::any('user/{id}/{name}', function ($id, $name) {
     return "User id is: " . $id . "user name is: " . $name;
 });
- 
+
 
 // optional paramater
 Route::get('/user/{name?}', function ($name = "Guest") {
@@ -201,19 +201,12 @@ Route::get('/lang/{lang}', function ($lang) {
 });
 
 
-
-
 // UNIT:5 forms
 
 use App\Http\Controllers\formController;
 
 Route::get('/form', [formController::class, 'showform']);
 Route::post('/form', [formController::class, 'submitform']);
-
-
-
-
-
 
 
 use App\Http\Controllers\AuthController;
@@ -250,6 +243,72 @@ Route::get(
 );
 
 
-
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/students', [StudentController::class, 'store']);
+
+
+
+// query builder for inserting the record
+use Illuminate\Support\Facades\DB;
+
+Route::any('add-user', function () {
+    DB::table('students')->insert([
+        'name' => "Alok",
+        'email' => "alok@gmail.com",
+        'age' => 25,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+    return "student record inserted";
+});
+
+
+// get single record with conditions
+Route::get('/users/{id}', function () {
+
+    $students = DB::table('students')->where('id')->first();
+    dd($students);
+});
+
+
+// delete record
+Route::get('update-user', function () {
+
+    $students = DB::table('students')
+        ->whereBetween('age', [20, 30])
+        ->get();
+    return $students;
+});
+
+
+
+
+//uisng controller with query builder
+// use App\Http\Controllers\StudentController;
+
+Route::get("/all", [StudentController::class, "showuser"]);
+
+
+
+// use App\Http\Controllers\StdController;
+
+use App\Http\Controllers\StdController;
+
+Route::get('/students/create', [StdController::class, 'create']);
+
+Route::post('/students/store', [StdController::class, 'store']);
+
+use App\
+
+
+Route::get('/students', [StdController::class,'index']);
+
+Route::get('/students/create', [StdController::class,'create']);
+
+Route::post('/students/store', [StdController::class,'store']);
+
+Route::get('/students/edit/{id}', [StdController::class,'edit']);
+
+Route::post('/students/update/{id}', [StdController::class,'update']);
+
+Route::get('/students/delete/{id}', [StdController::class,'destroy']);

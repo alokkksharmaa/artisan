@@ -14,21 +14,22 @@ class StudentSeeder extends Seeder
     public function run(): void
     {
         // Insert single record
-        // Student::create([
-        //     'name'  => 'Raj',
-        //     'email' => 'abc@gmail.com',
-        //     'age'   => 28,
-        // ]);
+        Student::create([
+            'name'  => 'Raj',
+            'email' => 'abc@gmail.com',
+            'age'   => 28,
+        ]);
 
         $json = File::get('database/json/student.json');
-        $students=collect(json_decode($json));
+        $students = collect(json_decode($json));
 
-        $students->each(function($student){
+        $students->each(function ($student) {
             Student::create([
-                'name'=> $student->name,
-                'email'=>$student->email,
-                'age'=>$student->age
+                'name' => $student->name,
+                'email' => $student->email,
+                'age' => $student->age
             ]);
         });
+
     }
 }

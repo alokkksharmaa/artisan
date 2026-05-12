@@ -24,8 +24,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);        
-    $this -> call([
-        StudentSeeder::class
-    ]);
+    // $this -> call([
+    //     StudentSeeder::class
+    // ]);
+    // }
+    
+        Student::factory()->count(10)->create();
+       // Student::factory(20)->create();
     }
 }
