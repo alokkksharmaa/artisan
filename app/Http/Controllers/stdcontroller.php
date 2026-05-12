@@ -22,7 +22,7 @@ class StdController extends Controller
 
         ]);
 
-        return "Data Inserted Successfully";
+        return redirect('/students');
     }
 
        // READ DATA

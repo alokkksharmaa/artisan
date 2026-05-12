@@ -139,7 +139,6 @@ Route::domain('user.localhost')->group(function () {
 
 use App\Http\Controllers\StudentController;
 
-Route::get('/students', [StudentController::class, 'index']);
 Route::get('/student/{id}', [StudentController::class, 'show']);
 
 // Redirect form another route
@@ -243,10 +242,6 @@ Route::get(
 );
 
 
-Route::get('/students', [StudentController::class, 'index']);
-Route::post('/students', [StudentController::class, 'store']);
-
-
 
 // query builder for inserting the record
 use Illuminate\Support\Facades\DB;
@@ -290,25 +285,11 @@ Route::get("/all", [StudentController::class, "showuser"]);
 
 
 
-// use App\Http\Controllers\StdController;
-
 use App\Http\Controllers\StdController;
 
+Route::get('/students', [StdController::class, 'index']);
 Route::get('/students/create', [StdController::class, 'create']);
-
 Route::post('/students/store', [StdController::class, 'store']);
-
-use App\
-
-
-Route::get('/students', [StdController::class,'index']);
-
-Route::get('/students/create', [StdController::class,'create']);
-
-Route::post('/students/store', [StdController::class,'store']);
-
-Route::get('/students/edit/{id}', [StdController::class,'edit']);
-
-Route::post('/students/update/{id}', [StdController::class,'update']);
-
-Route::get('/students/delete/{id}', [StdController::class,'destroy']);
+Route::get('/students/edit/{id}', [StdController::class, 'edit']);
+Route::post('/students/update/{id}', [StdController::class, 'update']);
+Route::get('/students/delete/{id}', [StdController::class, 'destroy']);
