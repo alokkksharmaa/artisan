@@ -1,0 +1,19 @@
+Sample questions for ETP- Qu 1: Create a controller named ProfileController. Inside the ProfileController, add a method called show that takes a user's name as a parameter. 
+(a)Create a Blade template named profile.blade.php that dynamically outputs the user's name passed from the controller method. 
+(b)Define a route that accepts the user's name as a URL parameter and maps to the show method in the ProfileController.
+
+Qu 2: Create an Event Listing and Registration Page. Create a controller named EventController.
+(a) Define a method named index that displays a list of upcoming events
+(b)Add a register method in EventController that accepts an event ID as a parameter
+
+Qu 3: Create a  Job Application Form and create a JobController . 
+(a) Define an index method that returns a Blade template jobs.blade.php listing available job openings.
+(b) Create a method apply in JobController that accepts a job ID as a parameter.
+
+Qu 4: Create a Student Table and Display Students 
+(a)  Create a migration for a student table with fields: id, name, email, and course.
+(b)  Create a method create in StudentController to display a form in create_student.blade.php, Create a method store to handle form submission and insert the data into the database
+
+Qu 5: Create an Employee Table
+(a) Create a migration for an employee table with fields: id, name, position, salary
+(b) Create a method edit in EmployeeController that retrieves an employee’s details in edit_employee.blade.php. Create a method update to update the salary in the database.
