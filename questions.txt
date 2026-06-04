@@ -1,4 +1,5 @@
-Sample questions for ETP- Qu 1: Create a controller named ProfileController. Inside the ProfileController, add a method called show that takes a user's name as a parameter. 
+Sample questions for ETP- 
+Qu 1: Create a controller named ProfileController. Inside the ProfileController, add a method called show that takes a user's name as a parameter. 
 (a)Create a Blade template named profile.blade.php that dynamically outputs the user's name passed from the controller method. 
 (b)Define a route that accepts the user's name as a URL parameter and maps to the show method in the ProfileController.
 
