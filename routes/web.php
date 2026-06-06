@@ -23,3 +23,9 @@ Route::get('/add-student', function () {
 
     return "Student Added";
 });
+
+use App\Http\Controllers\EventController;
+
+Route::get('/events', [EventController::class, 'index']);
+
+Route::get('/events/register/{eventId}', [EventController::class, 'register']);
