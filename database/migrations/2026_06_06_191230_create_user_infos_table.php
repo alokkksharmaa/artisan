@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up()
     {
-    Schema::create('user_infos', function (Blueprint $table) {
-        $table->id();
-        $table->string('name');
-        $table->integer('age');
-        $table->string('language');
-        $table->timestamps();
-    });
-}
+        Schema::create('user_infos', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('age');
+            $table->string('language');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
