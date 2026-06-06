@@ -28,4 +28,4 @@ use App\Http\Controllers\EventController;
 
 Route::get('/events', [EventController::class, 'index']);
 
-Route::get('/events/register/{eventId}', [EventController::class, 'register']);
+Route::get('/events/register/{eventId}', [EventController::class, 'register']); 
