@@ -1,33 +1,37 @@
 <?php
 
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\UserInfo;
 
 class UserInfoController extends Controller
 {
-
     public function create()
     {
         return view('userinfo');
     }
 
-
-    public function store(Request $request) {
-        $request -> validate([
-            'name' => 'required|regex:/[A-Za-z ]+$',
-            'age'  => 'required|integer|min:18',
-            'language' => 'required|in:PHP, JavaScript, Python',
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|regex:/^[A-Za-z ]+$/',
+            'age' => 'required|integer|min:18',
+            'language' => 'required|in:PHP,JavaScript,Python',
         ]);
 
-        userInfo::create([
+        UserInfo::create([
             'name' => $request->name,
-            'age' =>  $request->age,
+            'age' => $request->age,
             'language' => $request->language
         ]);
+
+        return redirect()->route('users.list');
     }
-    public function index(){
-        $users  = UserInfo::all();
+
+    public function index()
+    {
+        $users = UserInfo::all();
 
         return view('records', compact('users'));
     }
