@@ -18,3 +18,13 @@ Qu 4: Create a Student Table and Display Students
 Qu 5: Create an Employee Table
 (a) Create a migration for an employee table with fields: id, name, position, salary
 (b) Create a method edit in EmployeeController that retrieves an employee’s details in edit_employee.blade.php. Create a method update to update the salary in the database.
+
+
+Qu 6: 
+(a)Design a Laravel form that collects a user's name, age, and favorite programming language. Apply
+Laravel validation rules so that:
+Name should contain only alphabets
+Age must be 18 or above
+Favorite programming language must be selected from a list (PHP, JavaScript, Python).
+(b) Extend the above form to store the submitted information in the database using an Eloquent model and
+display the stored records in a table format.
