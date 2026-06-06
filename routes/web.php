@@ -34,3 +34,12 @@ Route::get('/events/register/{eventId}', [EventController::class, 'register']);
 // use App\Http\Controllers\ProfileController;
 
 Route::get('/profile/{name}', [ProfileController::class, 'show']);
+
+
+use App\Http\Controllers\UserInfoController;
+
+Route::get('/user-form',[UserInfoController::class,'create']);
+
+Route::post('/user-store',[UserInfoController::class,'store']);
+
+Route::get('/users',[UserInfoController::class,'index']) ->name('users.list');
