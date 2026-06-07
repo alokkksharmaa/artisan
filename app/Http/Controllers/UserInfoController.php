@@ -25,7 +25,6 @@ class UserInfoController extends Controller
             'age' => $request->age,
             'language' => $request->language,
         ]);
-
         return redirect()->route('users.list');
     }
 
