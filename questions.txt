@@ -13,11 +13,13 @@ Qu 3: Create a  Job Application Form and create a JobController .
 
 Qu 4: Create a Student Table and Display Students 
 (a)  Create a migration for a student table with fields: id, name, email, and course.
-(b)  Create a method create in StudentController to display a form in create_student.blade.php, Create a method store to handle form submission and insert the data into the database
+(b)  Create a method create in StudentController to display a form in create_student.blade.php,
+ Create a method store to handle form submission and insert the data into the database
 
 Qu 5: Create an Employee Table
 (a) Create a migration for an employee table with fields: id, name, position, salary
-(b) Create a method edit in EmployeeController that retrieves an employee’s details in edit_employee.blade.php. Create a method update to update the salary in the database.
+(b) Create a method edit in EmployeeController that retrieves an employee’s details in edit_employee.blade.php. 
+Create a method update to update the salary in the database.
 
 
 Qu 6: 

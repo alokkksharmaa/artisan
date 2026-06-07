@@ -23,7 +23,7 @@ class UserInfoController extends Controller
         UserInfo::create([
             'name' => $request->name,
             'age' => $request->age,
-            'language' => $request->language
+            'language' => $request->language,
         ]);
 
         return redirect()->route('users.list');
